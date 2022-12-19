@@ -1,0 +1,36 @@
+.CardDetailPicture{
+    border-radius: 12px;
+}
+
+.DetailBox{
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 12px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+    margin-left: 8%;
+  }
+
+.InnerDetailBox{
+  padding: 24px;
+}
+
+.Divider{
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+
+.IconListStyle{
+  padding-top: 30px;
+}
+
+.img{
+  object-fit: cover;
+  width: 100%;
+  height: 50vh;
+  border-radius: 12px;
+  box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+}
+
+.fish{
+  -webkit-filter: drop-shadow(3px 5px 5px rgb(189, 185, 185));
+}
