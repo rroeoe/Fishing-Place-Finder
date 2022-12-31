@@ -48,9 +48,9 @@ const UpdateEmail = () => {
 
   return (
     <Container component="main" maxWidth="xs">
-      <Grid container spacing={2}>
+      <Grid container spacing={2} style={{ marginTop: "15%" }}>
         <Grid item xs={12} md={12}>
-          <Typography component="h1" variant="h5">
+          <Typography component="h1" variant="h4">
             E-Mail ändern
           </Typography>
         </Grid>

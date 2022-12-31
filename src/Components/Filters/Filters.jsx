@@ -60,7 +60,7 @@ const Filters = (props) => {
   const [active, setActive] = useState(false);
   const cantons = ["OW", "BE", "SG", "SZ", "UR", "TG", "AI"];
 
-  //Handling add and delete cantons in the cantonFilter
+
   const handleChipClick = (event) => {
     if (filter.cantonFilter.includes(event.target.innerText)) {
       setFilter((prevValues) => ({
@@ -76,8 +76,7 @@ const Filters = (props) => {
       }));
     }
   };
-
-  //Handling activeness of canton filter (variant filled grey)
+  
   const handleActiveness = () => {
     if (filter.cantonFilter.length === 0) {
       setActive(false);

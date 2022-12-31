@@ -58,9 +58,9 @@ const UpdateProfile = () => {
 
   return (
     <Container component="main" maxWidth="xs">
-      <Grid container spacing={2}>
-        <Grid item xs={12} md={12} style={{ marginTop: "15%" }}>
-          <Typography component="h1" variant="h5">
+      <Grid container spacing={2} style={{ marginTop: "15%" }}>
+        <Grid item xs={12} md={12}>
+          <Typography component="h1" variant="h4">
             Profil anpassen
           </Typography>
         </Grid>

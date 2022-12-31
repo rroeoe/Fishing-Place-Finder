@@ -13,7 +13,7 @@ const Favorites = () => {
   return (
     <div>
       <Container component="main" maxWidth="lg">
-        <Grid container spacing={2}>
+        <Grid container spacing={2} style={{ marginTop: "5%" }}>
           <Grid item xs={12} md={12}>
             <Typography variant="h4" component="h1">
               Meine Favoriten
