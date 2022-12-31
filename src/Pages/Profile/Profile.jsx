@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../../Services/AuthContext";
 import {
-  getReviewsOfCurrentUser,
   getDataOfCurrentUser,
   } from "../../Services/Firestore";
 import { upload } from "../../Services/Storage"
@@ -15,20 +14,15 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
-import Rating from "@mui/material/Rating";
-import Alert from "@mui/material/Alert";
 import SettingsIcon from '@mui/icons-material/Settings';
 import { errorAlert, successAlert } from "../../Components/Alerts/Alerts";
 
 const Profile = () => {
   const { currentUser, logout } = useAuth();
-  const [reviewsOfCurrentUser, setReviewsOfCurrentUser] = useState([]);
   const [dataOfCurrentUser, setDataOfCurrentUser] = useState([]);
-  const [trigger, setTrigger] = useState(false)
   const [loading, setLoading] = useState(false);
   const [photoUrl, setPhotoUrl] = useState("Hier klicken");
   const navigate = useNavigate();
-  const commentRef = useRef();
   const MAX_FILESIZE = 5120
 
   async function handleLogout() {

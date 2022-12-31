@@ -20,7 +20,6 @@ const Signup = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { login } = useAuth();
   const { signup, currentUser } = useAuth();
 
   async function handleSubmit(e) {

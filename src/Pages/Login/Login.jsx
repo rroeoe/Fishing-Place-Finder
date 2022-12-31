@@ -1,13 +1,12 @@
 import React, { useRef, useState } from "react";
 import { Button, TextField } from "@mui/material";
-import { Box } from "@mui/system";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Link from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Services/AuthContext";
 import Typography from "@mui/material/Typography";
-import { successAlert, errorAlert } from "../../Components/Alerts/Alerts";
+import { errorAlert } from "../../Components/Alerts/Alerts";
 
 const Login = () => {
   const emailRef = useRef();

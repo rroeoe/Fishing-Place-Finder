@@ -1,11 +1,10 @@
-import React, { Profiler } from "react";
+import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Details from "./Pages/Details/Details";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import { theme, font } from "./Services/Theme";
-import GoogleMaps from "./Services/GoogleMaps";
+import { theme } from "./Services/Theme";
 import Error from "./Pages/Error/Error";
 import Favorites from "./Pages/Favorites/Favorites";
 import Login from "./Pages/Login/Login";
@@ -19,15 +18,11 @@ import UpdateEmail from "./Pages/Profile/UpdateEmail";
 import UpdatePassword from "./Pages/Profile/UpdatePassword";
 import UpdateProfile from "./Pages/Profile/UpdateProfile";
 import Footer from "./Layouts/Footer"
-import Testground from "./Pages/Testground/Testground";
-import Test2 from "./Pages/Testground/Test2";
 import { DataContextProvider } from "./Services/DataContext";
 import { ToastContainer } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import Map from "./Pages/Map/Map";
 import { useLoadScript } from "@react-google-maps/api";
-
-
 
 function App() {
   const { isLoaded } = useLoadScript({

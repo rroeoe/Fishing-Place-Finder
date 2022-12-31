@@ -17,15 +17,10 @@ export default function Header() {
   const { currentUser, logout } = useAuth();
   const [photoUrl, setPhotoUrl] = useState("");
   const navigate = useNavigate();
-  const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = (event) => {
@@ -44,17 +39,9 @@ export default function Header() {
     navigate("/favorites");
   }
 
-  function handleReviewsClick() {
-    navigate("/profile");
-  }
-
   async function handleLogout() {
       await logout();
       navigate("/login");
-  }
-
-  function handleToolbarCLick() {
-    navigate("/");
   }
 
   useEffect(() => {

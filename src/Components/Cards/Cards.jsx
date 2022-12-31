@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../Services/AuthContext";
-import { db } from "../../Services/Firebase";
-import { addFavorite, getFavorites, getFishingplaces } from "../../Services/Firestore";
+import { addFavorite, getFavorites } from "../../Services/Firestore";
 import { deleteFavorite } from "../../Services/Firestore";
-import { collection, query, where, onSnapshot } from "firebase/firestore";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea, CardActions } from "@mui/material";
+import { CardActionArea } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import Rating from "@mui/material/Rating";
 import { IconButton } from "@mui/material";
@@ -17,8 +15,7 @@ import Chip from "@mui/material/Chip";
 import StarIcon from "@mui/icons-material/Star";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { successAlert, errorAlert } from "../Alerts/Alerts";
-
+import { successAlert } from "../Alerts/Alerts";
 
 const Cards = (props) => {
   const { currentUser } = useAuth();

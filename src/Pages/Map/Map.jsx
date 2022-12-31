@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useData } from "../../Services/DataContext";
 import "../../Assets/Marker.png";
 import Cards from "../../Components/Cards/Cards";

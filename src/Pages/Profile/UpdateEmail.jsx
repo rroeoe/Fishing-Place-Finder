@@ -8,7 +8,6 @@ import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Alert from "@mui/material/Alert";
 import { successAlert, errorAlert } from "../../Components/Alerts/Alerts";
 
 const UpdateEmail = () => {
