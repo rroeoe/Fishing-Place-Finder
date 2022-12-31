@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Fishing Place Finder (React/Firebase)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to Fishing Place Finder, a web application that helps fishers in Switzerland find the perfect fishing spot based on their preferences.
+
+This app is built using React, a JavaScript library for building user interfaces, and Firebase, a comprehensive app development platform. The app is also designed using MUI, a design library that provides a consistent look and feel across different devices.
+
+With Fishing Place Finder, users can search for fishing spots based on location, type of fish, and availability. They can also create a profile and save their favorite fishing spots for future reference.
 
 ## Available Scripts
 
