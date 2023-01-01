@@ -7,8 +7,7 @@ import { Typography } from "@mui/material";
 
 const Favorites = () => {
   const { data } = useData();
-
-  const favorites = data.filter((item) => item.favorite == true);
+  const favorites = data.filter((item) => item.favorite === true);
 
   return (
     <div>
@@ -19,7 +18,7 @@ const Favorites = () => {
               Meine Favoriten
             </Typography>
           </Grid>
-          {favorites.length == 0 ? (
+          {favorites.length === 0 ? (
             <Grid item xs={12} md={12}>
               <Typography variant="h6" component="h1">
                 Keine Favoriten

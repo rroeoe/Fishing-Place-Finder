@@ -27,17 +27,17 @@ export const searchFilterFunction = (array, filter) => {
 
 export const popularFilterFunction = (array, filter) => {
   if (filter.popularFilter === false) return array;
-  return array.filter((item) => item.popular == true);
+  return array.filter((item) => item.popular === true);
 };
 
 export const sanaFilterFunction = (array, filter) => {
   if (filter.sanaFilter === false) return array;
-  return array.filter((item) => item.sana == false);
+  return array.filter((item) => item.sana === false);
 };
 
 export const boatFilterFunction = (array, filter) => {
   if (filter.boatFilter === false) return array;
-  return array.filter((item) => item.boatRental == true);
+  return array.filter((item) => item.boatRental === true);
 };
 
 export const cantonFilterFunction = (array, filter) => {

@@ -32,7 +32,7 @@ const Cards = (props) => {
       if (
         favorites.some((e) => e.fishingplace === props.name)
       ) {
-        const res = favorites.filter(item => item.fishingplace == props.name)
+        const res = favorites.filter(item => item.fishingplace === props.name)
         deleteFavorite(res[0].documentId)
         successAlert("Favorit erfolgreich entfernt")
 

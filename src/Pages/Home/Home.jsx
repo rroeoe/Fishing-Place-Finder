@@ -68,7 +68,7 @@ const Home = () => {
         ))}
       </Grid>
       <Grid item xs={12} md={12} style={{marginTop:"3vh"}}>
-        {dataToRender.length == 0 ? (
+        {dataToRender.length === 0 ? (
           <Typography variant="body1">keine Ergebnisse</Typography>
         ) : (
           <></>

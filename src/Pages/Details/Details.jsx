@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useData } from "../../Services/DataContext";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { addFavorite, deleteFavorite } from "../../Services/Firestore";
-import { successAlert, errorAlert } from "../../Components/Alerts/Alerts";
+import { successAlert } from "../../Components/Alerts/Alerts";
 import { useAuth } from "../../Services/AuthContext";
 import { getFavorites } from "../../Services/Firestore";
 import Container from "@mui/material/Container";
@@ -35,7 +35,7 @@ const Details = () => {
 
   useEffect(() => {
     getFavorites(currentUser, setFavorites);
-  }, []);
+  }, [currentUser]);
 
   const fishTypes = [
     {
@@ -104,7 +104,7 @@ const Details = () => {
     if (currentUser) {
       if (favorites.some((e) => e.fishingplace === params.name)) {
         const res = favorites.filter(
-          (item) => item.fishingplace == params.name
+          (item) => item.fishingplace === params.name
         );
         deleteFavorite(res[0].documentId);
         successAlert("Favorit erfolgreich entfernt");
@@ -159,7 +159,6 @@ const Details = () => {
             <IconButton
               style={{
                 position: "absolute",
-                top: 0,
                 right: "5%",
                 top: "10%",
               }}
@@ -199,6 +198,7 @@ const Details = () => {
             <a
               href={dataToRender.name}
               target="_blank"
+              rel="noreferrer"
               style={{ textDecoration: "none", color: "#707070" }}
             >
               <div
@@ -267,7 +267,7 @@ const Details = () => {
             <Typography color="third.main">Mietboot:</Typography>
           </Grid>
           <Grid item xs={8} md={9}>
-            <Typography color="third.main"> 
+            <Typography color="third.main">
               {dataToRender.boat ? "vorhanden" : "keine Mietoption"}
             </Typography>
           </Grid>
@@ -310,6 +310,7 @@ const Details = () => {
               <a
                 href={"tel:" + dataToRender.office.phone}
                 target="_blank"
+                rel="noreferrer"
                 style={{ textDecoration: "none", color: "#707070" }}
               >
                 {dataToRender.office.phone}
@@ -326,6 +327,7 @@ const Details = () => {
               <a
                 href={dataToRender.office.website}
                 target="_blank"
+                rel="noreferrer"
                 style={{ textDecoration: "none", color: "#707070" }}
               >
                 Website
@@ -342,6 +344,7 @@ const Details = () => {
               <a
                 href={dataToRender.office.rules}
                 target="_blank"
+                rel="noreferrer"
                 style={{ textDecoration: "none", color: "#707070" }}
               >
                 Reglement
@@ -363,7 +366,12 @@ const Details = () => {
 
         {fishTypes.map((item, index) => (
           <Grid item xs={12} md={4} align="center" key={index}>
-            <img width="180px" src={require("../../Assets/" + item.En + ".png")} className="fish"></img>
+            <img
+              width="180px"
+              src={require("../../Assets/" + item.En + ".png")}
+              className="fish"
+              alt={item.De}
+            ></img>
             <Typography
               variant="iconList"
               color="secondary"
@@ -416,4 +424,3 @@ const Details = () => {
 };
 
 export default Details;
-

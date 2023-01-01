@@ -1,10 +1,10 @@
 import React, { useContext, useState, useEffect, createContext } from "react";
 import {
-    getFishingplaces,
-    getAverageRating,
-    getFormattedFavorites
-} from "./Firestore"
-import { useAuth } from "./AuthContext"
+  getFishingplaces,
+  getAverageRating,
+  getFormattedFavorites,
+} from "./Firestore";
+import { useAuth } from "./AuthContext";
 
 const DataContext = createContext();
 
@@ -12,7 +12,7 @@ export function DataContextProvider({ children }) {
   const [data, setData] = useState([]);
   const [fishingplaces, setFishingplaces] = useState([]);
   const [favorites, setFavorites] = useState([]);
-  const [averageRating, setAverageRating] = useState([])
+  const [averageRating, setAverageRating] = useState([]);
   const { currentUser } = useAuth();
 
   useEffect(() => {
@@ -52,17 +52,17 @@ export function DataContextProvider({ children }) {
       merged2.push({
         ...merged[i],
         ...averageRating.find(
-          (itmInner) => itmInner.fishingplace == merged[i].name
+          (itmInner) => itmInner.fishingplace === merged[i].name
         ),
       });
     }
     setData(merged2);
   }, [averageRating, favorites]);
- 
+
   return (
     <DataContext.Provider
       value={{
-        data
+        data,
       }}
     >
       {children}
@@ -77,4 +77,3 @@ export function useData() {
   }
   return context;
 }
-
