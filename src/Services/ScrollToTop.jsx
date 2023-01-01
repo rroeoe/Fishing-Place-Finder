@@ -1,6 +1,4 @@
 import { useEffect } from "react";
-
-//React router
 import { useLocation } from "react-router";
 
 const ScrollToTop = (props) => {

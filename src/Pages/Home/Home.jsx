@@ -49,7 +49,7 @@ const Home = () => {
           </Typography>
         </Grid>
         <Grid item xs={12} md={12}>
-          <Filters filterState={[filter, setFilter]} />
+          <Filters filter={filter} setFilter={setFilter} />
         </Grid>
         {dataToRender.map((item) => (
           <Cards

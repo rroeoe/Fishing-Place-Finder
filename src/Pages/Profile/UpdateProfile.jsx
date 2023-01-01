@@ -64,7 +64,7 @@ const UpdateProfile = () => {
             Profil anpassen
           </Typography>
         </Grid>
-        {dataOfCurrentUser.map((item) => (
+        {dataOfCurrentUser.map((item, index) => (
           <>
             <Grid item xs={12} md={12}>
               <TextField
@@ -78,7 +78,7 @@ const UpdateProfile = () => {
                 defaultValue={item.firstname}
               />
             </Grid>
-            <Grid item xs={12}>
+            <Grid item xs={12} md={12}>
               <TextField
                 required
                 fullWidth

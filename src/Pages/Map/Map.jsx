@@ -54,7 +54,6 @@ function Map(){
               lat: props.googleLocation.latitude,
               lng: props.googleLocation.longitude,
             }}
-            // label={{text: props.fields.name, color: "black"}}
             onClick={() => handleActiveMarker(props.name)}
             icon={{
               url: require("../../Assets/Marker.png"),

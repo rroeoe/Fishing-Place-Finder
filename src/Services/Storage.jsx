@@ -1,19 +1,10 @@
 import "firebase/compat/auth";
-
-//Auth context
 import { updateProfile } from "firebase/auth";
-
-//Firebase
 import { storage, db } from "./Firebase";
-
-//Firestore
 import { doc, setDoc } from "firebase/firestore";
-
-//Storage
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-//Profile picture
-export async function upload(file, currentUser, setLoading) {
+export async function uploadImage(file, currentUser, setLoading) {
   const fileRef = ref(storage, "users/" + currentUser.uid);
 
   setLoading(true);

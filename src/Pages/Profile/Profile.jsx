@@ -4,7 +4,7 @@ import { useAuth } from "../../Services/AuthContext";
 import {
   getDataOfCurrentUser,
   } from "../../Services/Firestore";
-import { upload } from "../../Services/Storage"
+import { uploadImage } from "../../Services/Storage"
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
@@ -38,7 +38,7 @@ const Profile = () => {
 
   async function handleImageUploadChange(event) {
     if (event.target.files[0].size / 1024 < MAX_FILESIZE) {
-      await upload(event.target.files[0], currentUser, setLoading);
+      await uploadImage(event.target.files[0], currentUser, setLoading);
       window.location.reload(false);
       } else {
       errorAlert("Die Datei darf die maximale Grösse von 5 MB nicht überschreiten")

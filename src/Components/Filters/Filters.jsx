@@ -17,7 +17,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import { Typography } from "@mui/material";
 
-//Search filter
+
 export const searchFilterFunction = (array, filter) => {
   if (filter.searchFilter === "") return array;
   return array.filter((item) =>
@@ -25,25 +25,21 @@ export const searchFilterFunction = (array, filter) => {
   );
 };
 
-//Popular filter
 export const popularFilterFunction = (array, filter) => {
   if (filter.popularFilter === false) return array;
   return array.filter((item) => item.popular == true);
 };
 
-//SANA filter
 export const sanaFilterFunction = (array, filter) => {
   if (filter.sanaFilter === false) return array;
   return array.filter((item) => item.sana == false);
 };
 
-//Boat filter
 export const boatFilterFunction = (array, filter) => {
   if (filter.boatFilter === false) return array;
   return array.filter((item) => item.boatRental == true);
 };
 
-//Canton filter
 export const cantonFilterFunction = (array, filter) => {
   if (filter.cantonFilter.length === 0) {
     return array;
@@ -55,30 +51,28 @@ export const cantonFilterFunction = (array, filter) => {
 };
 
 const Filters = (props) => {
-  const [filter, setFilter] = props.filterState;
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(false);
   const cantons = ["OW", "BE", "SG", "SZ", "UR", "TG", "AI"];
 
-
   const handleChipClick = (event) => {
-    if (filter.cantonFilter.includes(event.target.innerText)) {
-      setFilter((prevValues) => ({
+    if (props.filter.cantonFilter.includes(event.target.innerText)) {
+      props.setFilter((prevValues) => ({
         ...prevValues,
-        cantonFilter: filter.cantonFilter.filter(
+        cantonFilter: props.filter.cantonFilter.filter(
           (e) => e !== event.target.innerText
         ),
       }));
     } else {
-      setFilter((prevValues) => ({
+      props.setFilter((prevValues) => ({
         ...prevValues,
-        cantonFilter: [...filter.cantonFilter, event.target.innerText],
+        cantonFilter: [...props.filter.cantonFilter, event.target.innerText],
       }));
     }
   };
-  
+
   const handleActiveness = () => {
-    if (filter.cantonFilter.length === 0) {
+    if (props.filter.cantonFilter.length === 0) {
       setActive(false);
     } else {
       setActive(true);
@@ -94,7 +88,7 @@ const Filters = (props) => {
             label="Suche..."
             variant="outlined"
             onChange={(event) =>
-              setFilter((prevValues) => ({
+              props.setFilter((prevValues) => ({
                 ...prevValues,
                 searchFilter: event.target.value,
               }))
@@ -124,11 +118,11 @@ const Filters = (props) => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={filter.popularFilter}
+                    checked={props.filter.popularFilter}
                     onClick={() =>
-                      setFilter((prevValues) => ({
+                      props.setFilter((prevValues) => ({
                         ...prevValues,
-                        popularFilter: !filter.popularFilter,
+                        popularFilter: !props.filter.popularFilter,
                       }))
                     }
                   />
@@ -138,25 +132,25 @@ const Filters = (props) => {
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={filter.sanaFilter}
+                    checked={props.filter.sanaFilter}
                     onClick={() =>
-                      setFilter((prevValues) => ({
+                      props.setFilter((prevValues) => ({
                         ...prevValues,
-                        sanaFilter: !filter.sanaFilter,
+                        sanaFilter: !props.filter.sanaFilter,
                       }))
                     }
                   />
                 }
-                label="Angelplätze ohne SaNa-Pflicht"
+                label="ohne SaNa-Pflicht"
               />
               <FormControlLabel
                 control={
                   <Checkbox
-                    checked={filter.boatFilter}
+                    checked={props.filter.boatFilter}
                     onClick={() =>
-                      setFilter((prevValues) => ({
+                      props.setFilter((prevValues) => ({
                         ...prevValues,
-                        boatFilter: !filter.boatFilter,
+                        boatFilter: !props.filter.boatFilter,
                       }))
                     }
                   />
@@ -180,7 +174,7 @@ const Filters = (props) => {
                   key={index}
                   label={cantonExpression}
                   variant={
-                    filter.cantonFilter.includes(cantonExpression)
+                    props.filter.cantonFilter.includes(cantonExpression)
                       ? "filled"
                       : "outlined"
                   }
