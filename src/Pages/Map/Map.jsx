@@ -35,7 +35,7 @@ function Map(){
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyD0p-JdU_mJBuBF83V-EY9g9MECHCkiV18",
+    googleMapsApiKey: process.env.GOOGLE_MAP_API_KEY,
   });
 
   return isLoaded ? (
